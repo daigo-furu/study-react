@@ -4,13 +4,13 @@ import { Links } from "@/components/Links";
 import { Footer } from "@/components/Footer";
 
 export const metadata = {
-  title: "Index Page",
+  title: "About Page",
 };
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <h1>Index Page</h1>
+      <h1>About Page</h1>
       <main className={styles.main}>
         <Image
           className={styles.logo}
