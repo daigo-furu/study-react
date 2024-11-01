@@ -1,10 +1,14 @@
 import Image from "next/image";
 import styles from "@/app/page.module.css"
 
-export function Headline() {
+type Props = {
+  page: string;
+};
+
+export function Headline({ page }: Props) {
   return (
     <>
-      <h1>Index Page</h1>
+      <h1 className={styles.title}>{page} page</h1>
       <Image
         className={styles.logo}
         src="/next.svg"
@@ -15,7 +19,7 @@ export function Headline() {
       />
       <ol>
         <li>
-          Get started by editing <code>src/app/page.tsx</code>.
+          Get started by editing <code>src/app/{page}.tsx</code>.
         </li>
         <li>Save and see your changes instantly.</li>
       </ol>
