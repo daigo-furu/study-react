@@ -4,7 +4,7 @@ import styles from "@/app/page.module.css"
 type Props = {
   page: string;
 };
-
+//
 export function Headline({ page }: Props) {
   return (
     <>
