@@ -1,10 +1,6 @@
 import Image from "next/image";
 import styles from "@/app/page.module.css"
 
-export const metadata = {
-  title: "Index Page",
-};
-
 export function Links() {
   return (
     <div className={styles.ctas}>
