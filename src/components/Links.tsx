@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/components/Link.module.css"
+import styles from "@/components/Links.module.css"
 
 export function Links() {
   return (
