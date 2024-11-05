@@ -1,4 +1,4 @@
-import styles from "@/app/page.module.css"
+import styles from "@/components/Main.module.css"
 import { Links } from "@/components/Links";
 import { Headline } from "@/components/Headline";
 
