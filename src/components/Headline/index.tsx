@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "@/components/Headline.module.css"
+import styles from "./Headline.module.css"
 import { ReactNode } from "react";
 
 type Props = {
