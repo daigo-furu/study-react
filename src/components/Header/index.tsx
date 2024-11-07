@@ -35,10 +35,11 @@ export function Header() {
     <header className={styles.header}>
       <a
         href="/about"
-        onClick={(e) => {handleClick1(e, foo)}}>ボタン
+        onClick={(e) => {handleClick1(e, foo)}}>ボタン1
       </a>
 
-      <button onClick={handleClick2}>ボタン</button>
+      <button onClick={handleClick2}>ボタン2</button>
+      <button onClick={handleClick3}>ボタン3</button>
 
       {/* <a
         href="/about"
