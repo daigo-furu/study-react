@@ -25,12 +25,9 @@ export function Header() {
     console.log(e.target);
     alert(foo);
   }, []);
-  // function handleClick (e: ){
-  // // function handleClick (e: React.ChangeEvent<HTMLInputElement>){
-  //   console.log(e.target)
-  //   e.preventDefault()
-  //   alert(123);
-  // }
+
+
+
   return (
     <header className={styles.header}>
       <a
@@ -41,15 +38,6 @@ export function Header() {
       <button onClick={handleClick2}>ボタン2</button>
       <button onClick={handleClick3}>ボタン3</button>
 
-      {/* <a
-        href="/about"
-        onClick={(e) => {
-          console.log(e.target)
-          e.preventDefault()
-          alert(123);
-        }
-        }>ボタン</a> */}
-      {/* <button onClick={function () {alert(123);}}>ボタン</button> */}
       <Link className={styles.anchor} href="/">
         Index
       </Link>
