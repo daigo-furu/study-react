@@ -22,7 +22,7 @@ export function Header() {
   };
   // useCallbackを使うと再レンダリングされたときに再生成されない
   const handleClick3 = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    // console.log(e.target);
+    console.log(e.target);
     // alert(count);
     console.log(count);
     if(count < 10){
