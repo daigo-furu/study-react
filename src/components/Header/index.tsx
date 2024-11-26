@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link"
 import styles from "./Header.module.css"
-import { useCallback, useState } from "react";
+import { useCallback, useState,useEffect } from "react";
 
 // 外部だと引数の渡しがめんどくさいがコンポーネントが再レンダリングされてもメソッドは再生成されない
 // <a>に使う場合はイベントの型はReact.MouseEvent<HTMLAnchorElement>で、React.MouseEventだけでも一応大丈夫
@@ -22,10 +22,21 @@ export function Header() {
   };
   // useCallbackを使うと再レンダリングされたときに再生成されない
   const handleClick3 = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e.target);
-    alert(count);
-  }, []);
+    // console.log(e.target);
+    // alert(count);
+    console.log(count);
+    if(count < 10){
+      setCount(count => count + 1)
+    }
+  }, [count]);
 
+
+  useEffect(() => {
+    console.log(`マウント時：${count}`)
+    return () => {
+      console.log(`アンマウント時：${count}`)
+    }
+  }, [count])
   return (
     <header className={styles.header}>
       <div>
