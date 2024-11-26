@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Othello</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">Ohtello</h1>
+  </header>
+  <main class="main">
+    <div class="window">
+      <div class="turnBox">
+        <p class="turnPlayer"><span>黒</span>のターン</p>
+        <p class="turnCount">1</p>
+      </div>
+      <div class="messageBox">
+        <p class="message">一人で黒と白を順番に虚しく配置してください。<br>先手は黒からです。<br>石の置ける場所をクリックすれば進められます。</p>
+      </div>
+      <div class="buttonBox">
+        <p class="button">パス</p>
+      </div>
+    </div>
+    <div class="board">
+      <ul class="squares">
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="0" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="0" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="0" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="0" data-colmun="3">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="0" data-colmun="4">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="0" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="0" data-colmun="6">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="0" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="1" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="1" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="1" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="1" data-colmun="3">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="1" data-colmun="4">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="1" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="1" data-colmun="6">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="1" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="2" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="2" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="2" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="2" data-colmun="3">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="2" data-colmun="4">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="2" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="2" data-colmun="6">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="2" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="3" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="3" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="3" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="3" data-colmun="3">
+              <p class="white"></p>
+            </li>
+            <li class="square" data-row="3" data-colmun="4">
+              <p class="black"></p>
+            </li>
+            <li class="square" data-row="3" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="3" data-colmun="6">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="3" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="4" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="4" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="4" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="4" data-colmun="3">
+              <p class="black"></p>
+            </li>
+            <li class="square" data-row="4" data-colmun="4">
+              <p class="white"></p>
+            </li>
+            <li class="square" data-row="4" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="4" data-colmun="6">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="4" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="5" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="5" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="5" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="5" data-colmun="3">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="5" data-colmun="4">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="5" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="5" data-colmun="6">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="5" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="6" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="6" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="6" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="6" data-colmun="3">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="6" data-colmun="4">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="6" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="6" data-colmun="6">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="6" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+        <li class="row">
+          <ul class="colmun">
+            <li class="square" data-row="7" data-colmun="0">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="7" data-colmun="1">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="7" data-colmun="2">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="7" data-colmun="3">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="7" data-colmun="4">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="7" data-colmun="5">
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="7" data-colmun="6">
+              
+              <p class="none"></p>
+            </li>
+            <li class="square" data-row="7" data-colmun="7">
+              <p class="none"></p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>React + TypeScript + Next.js Sample</p>
+  </footer>
+</body>
+</html>
