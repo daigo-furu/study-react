@@ -8,6 +8,9 @@ type Props = {
   // number: number;
   // // array: Array<number>; // 配列その1 どっちでもいい
   // array: number[]; // 配列その2 どっちでもいい
+  // // array2:  Array<Array<number>>; // 多次元配列その1 どっちでもいい
+  // array2: number[][]; // 多次配列その2 どっちでもいい
+  // array2: Array<number[]>; // 多次配列その3 どっちでもいい
   // obj: {foo:string, bar:string};
   // boolean: boolean;
   // code: ReactNode; // jsxを使うときの型。reactからimportする

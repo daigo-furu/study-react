@@ -13,6 +13,9 @@ const handleClick1 = (e: React.MouseEvent<HTMLAnchorElement>, foo: number) =>{
 
 export function Header() {
   const [count, setCount] = useState(1)
+  const [text, setText] = useState("")
+  const [isShow, setIsShow] = useState(true)
+
   // 内部だとコンポーネントが再レンダリングされるとメソッドは再生成される
   // <button>の場合はReact.MouseEvent<HTMLButtonElement>でReact.MouseEventだけでも一応大丈夫
   const handleClick2 = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -30,6 +33,19 @@ export function Header() {
     }
   }, [count]);
 
+  const handleDisplay = useCallback(() => {
+    setIsShow((isShow) =>  !isShow)
+  },[])
+
+
+  const handelChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    if(e.target.value.length > 5){
+      alert("5文字以内にしてください")
+      return
+    }
+    setText(e.target.value.trim())
+  },[])
+
 
   useEffect(() => {
     console.log(`マウント時：${count}`)
@@ -37,6 +53,7 @@ export function Header() {
       console.log(`アンマウント時：${count}`)
     }
   }, [count])
+
   return (
     <header className={styles.header}>
       <div>
@@ -56,8 +73,15 @@ export function Header() {
       <div>
         <button onClick={handleClick2}>ボタン2（カウント）</button>
         <button onClick={handleClick3}>ボタン3</button>
+        <button onClick={handleDisplay}
+        >
+          {isShow ? "非表示" : "表示"}
+        </button>
+        <input type="text" value={text}
+          onChange={handelChange}
+        />
       </div>
-      <h2>{count}</h2>
+      {isShow ? <h2>{count}</h2> : null}
     </header>
   );
 }
