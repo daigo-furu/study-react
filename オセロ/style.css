@@ -105,14 +105,14 @@
   width: 100%;
   height: 12.5%;
 }
-.colmun{
+.colmuns{
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
 }
-.square{
+.colmun{
   width: 12.5%;
   border: solid 1px #000;
   display: flex;
@@ -230,7 +230,7 @@
   .squares{
     border: solid 4px #000;
   }
-  .square{
+  .colmun{
     border: solid 2px #000;
   }
   .dot{
