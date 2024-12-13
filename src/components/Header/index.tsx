@@ -50,7 +50,7 @@ export function Header() {
     setText(e.target.value.trim())
   },[])
 
-  const handleAdd = useCallback((e: React.MouseEvent<HTMLButtonElement>) =>{
+  const handleAdd = useCallback(() =>{
     setArray((prevArray) => {
       if (prevArray.some(item => item === text)){
         alert("同じ要素がすでに存在します。")
