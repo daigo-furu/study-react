@@ -11,10 +11,14 @@ const handleClick1 = (e: React.MouseEvent<HTMLAnchorElement>, foo: number) =>{
   alert(foo);
 }
 
+
+
 export function Header() {
   const [count, setCount] = useState(1)
   const [text, setText] = useState("")
   const [isShow, setIsShow] = useState(true)
+  //
+  const [array, setArray] = useState<string[]>([])
 
   // 内部だとコンポーネントが再レンダリングされるとメソッドは再生成される
   // <button>の場合はReact.MouseEvent<HTMLButtonElement>でReact.MouseEventだけでも一応大丈夫
@@ -29,12 +33,12 @@ export function Header() {
     // alert(count);
     console.log(count);
     if(count < 10){
-      setCount(count => count + 1)
+      setCount(prevCount => prevCount + 1)
     }
   }, [count]);
 
   const handleDisplay = useCallback(() => {
-    setIsShow((isShow) =>  !isShow)
+    setIsShow((prevIsShow) =>  !prevIsShow)
   },[])
 
 
@@ -46,6 +50,15 @@ export function Header() {
     setText(e.target.value.trim())
   },[])
 
+  const handleAdd = useCallback(() =>{
+    setArray((prevArray) => {
+      if (prevArray.some(item => item === text)){
+        alert("同じ要素がすでに存在します。")
+        return prevArray
+      }
+      return [...prevArray, text]
+    })
+  },[text])
 
   useEffect(() => {
     console.log(`マウント時：${count}`)
@@ -80,6 +93,14 @@ export function Header() {
         <input type="text" value={text}
           onChange={handelChange}
         />
+        <button onClick={handleAdd}>追加</button>
+        <ul>
+          {array.map(item => {
+            return (
+              <li key={item}>{item}</li>
+            )
+          })}
+        </ul>
       </div>
       {isShow ? <h2>{count}</h2> : null}
     </header>
