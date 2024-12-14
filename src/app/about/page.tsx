@@ -10,7 +10,7 @@ export const metadata = {
   title: titleName,
 };
 
-export default function Home() {
+export default function About() {
   return (
     <div className={styles.page}>
       <Header />
