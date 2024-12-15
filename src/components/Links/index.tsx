@@ -1,36 +1,25 @@
 // import Image from "next/image";
+
 import styles from "./Links.module.css"
 
-const ITEMS = [
-  {
-    href: "https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
-    title: "①疾風ザブングル →",
-    description: "ここは地の果て流されて俺 今日もさすらい涙も枯れる"
-   },
-  {
-    href: "https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
-    title: "②黄金戦士ゴールドライタン \u2192",
-    description: "明日にかけて行くおれたちの願いが 届いているか聞こえるか遥かメカ次元"
-   },
-  {
-    href: "https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
-    title: "③ババーンと推参！バーンブレイバーン",
-    description: "この地球の嘆く声を聴け 安らぎを護る盾となれ"
-   },
-  {
-    href: "https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
-    title: "④闘士ゴーディアン",
-    description: "赤い血潮はその色の 真っ赤な夕日背に受けて"
-   }
-]
+type itemType = {
+  href: string,
+  title: string,
+  description: string
+}
+type Props = {
+  items: itemType[];
+  handleReduce: () => void;
+}
 
-export function Links() {
+export function Links({items, handleReduce}:Props) {
+
   return (
     <div className={styles.ctas}>
-
       <div className={styles.grid}>
+        <button onClick={handleReduce}>減らす</button>
         {/* map関数でコンポーネントを配列として返している */}
-        {ITEMS.map(item => {
+        {items.map(item => {
           return(
             <a key={item.href} href={item.href} className={styles.card}>
               <h2>{item.title} &rarr;</h2>
