@@ -4,6 +4,7 @@ import { Links } from "@/components/Links";
 import { Headline } from "@/components/Headline";
 import { useBgLightBlue } from "@/hooks/useBgLightBlue";
 import { useCallback, useState } from "react";
+// import { GlobalValueProvider } from "@/components/providers/GlobalValueProvider"
 
 type Props = {
   page: string;
@@ -46,10 +47,12 @@ export function Main({page}:Props) {
   useBgLightBlue(page)
   return (
     <main className={styles.main}>
-      <Headline page={page}>
-        <code>src/app/{page}.tsx</code>
-      </Headline>
-      <Links items={items} handleReduce={handleReduce} />
+      {/* <GlobalValueProvider> */}
+        <Headline page={page}>
+          <code>src/app/{page}.tsx</code>
+        </Headline>
+        <Links items={items} handleReduce={handleReduce} />
+      {/* </GlobalValueProvider> */}
     </main>
   );
 }
