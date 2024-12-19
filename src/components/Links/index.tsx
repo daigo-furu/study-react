@@ -1,6 +1,9 @@
+"use client";
 // import Image from "next/image";
 
 import styles from "./Links.module.css"
+import { GlobalValueContext } from "@/components/providers/GlobalValueProvider"
+import { useContext } from "react";
 
 type itemType = {
   href: string,
@@ -14,9 +17,23 @@ type Props = {
 
 export function Links({items, handleReduce}:Props) {
 
+  const context = useContext(GlobalValueContext);
+  if (!context) {
+    throw new Error("GlobalValueContext must be used within GlobalValueProvider");
+  }
+  const { globalString, globalBoolean, toggleglobalBoolean, globalNumber,  incrementGlobalNumber, decrementGlobalNumber } = context;
+
+
   return (
     <div className={styles.ctas}>
       <div className={styles.grid}>
+        <div>
+          <button onClick={toggleglobalBoolean}>Links globalBoolean：{globalBoolean ? "ON" : "OFF"}</button>
+          <p>{`Links globalString：${globalString}`}</p>
+          <p>{`Links globalNumber：${globalNumber}`}</p>
+          <button onClick={incrementGlobalNumber}>Links incrementGlobalNumber</button>
+          <button onClick={decrementGlobalNumber}>Links decrementGlobalNumber</button>
+        </div>
         <button onClick={handleReduce}>減らす</button>
         {/* map関数でコンポーネントを配列として返している */}
         {items.map(item => {

@@ -1,7 +1,9 @@
 "use client";
 import Image from "next/image";
 import styles from "./Headline.module.css"
-import { ReactNode } from "react";
+import { ReactNode, useCallback, useContext } from "react";
+
+import { GlobalValueContext } from "@/components/providers/GlobalValueProvider"
 
 type Props = {
   page: string;
@@ -42,6 +44,19 @@ export function Headline({ page, children }: Props) {
   const handleClick = (str: string) => {
     alert(str);
   };
+
+
+
+  const context = useContext(GlobalValueContext);
+  if (!context) {
+    throw new Error("GlobalValueContext must be used within GlobalValueProvider");
+  }
+  const { globalString, setGlobalString, globalBoolean, globalNumber,  incrementGlobalNumber, decrementGlobalNumber } = context;
+
+  const changeGlobalString = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setGlobalString(e.target.value)
+  },[])
+
   return (
     <>
     {/* <p>{number}, {array[1]}, {obj.bar}</p> */}
@@ -54,6 +69,12 @@ export function Headline({ page, children }: Props) {
         height={38}
         priority
       />
+      <p>Headline globalString：<input type="text" value={globalString} onChange={changeGlobalString} /></p>      
+      <p>Headline globalBoolean：{globalBoolean ? "ON" : "OFF"}</p>
+      <p>{`Headline globalString：${globalString}`}</p>
+      <p>{`Headline globalNumber：${globalNumber}`}</p>
+      <button onClick={incrementGlobalNumber}>Links incrementGlobalNumber</button>
+      <button onClick={decrementGlobalNumber}>Links decrementGlobalNumber</button>
       <ol>
         <li>
           Get started by editing {children}.

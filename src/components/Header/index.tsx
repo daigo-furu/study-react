@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link"
 import styles from "./Header.module.css"
-import { useEffect } from "react";
+import {  useEffect } from "react";
 import { useCounter } from "@/hooks/useCounter";
 import { useInputArray } from "@/hooks/useInputArray";
+// import { GlobalValueContext } from "@/components/providers/globalValueProvider";
 
 
 // 外部だと引数の渡しがめんどくさいがコンポーネントが再レンダリングされてもメソッドは再生成されない
@@ -27,6 +28,9 @@ export function Header() {
   // };
 
 
+  // const contextValue = useContext(GlobalValueContext)
+  // console.log(contextValue);
+  // const {globalString, setGlobalString} = useContext(GlobalValueContext)
   useEffect(() => {
     console.log(`マウント時：${count}`)
     return () => {
@@ -78,7 +82,7 @@ export function Header() {
         </ul>
       </div>
 
-
+      {/* <input type="text" value={globalString} */}
 
     </header>
   );
