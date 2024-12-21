@@ -45,6 +45,11 @@
   border-radius: 50%;
   background-color: #fff;
 }
+.change{
+  width: 16%;
+  height: 85%;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 100%);
+}
 
 .dot{
   position: absolute;
