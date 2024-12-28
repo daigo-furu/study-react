@@ -16,7 +16,7 @@ import { useInputArray } from "@/hooks/useInputArray";
 // }
 
 export function Header() {
-  const {count, isShow, handleClick1, handleClick2, handleClick3, handleDisplay} = useCounter()
+  const {count, isShow,doubleCount, handleClick1, handleClick2, handleClick3, handleDisplay} = useCounter()
   const {text, array, handelChange, handleAdd} = useInputArray()
 
   // 内部だとコンポーネントが再レンダリングされるとメソッドは再生成される
@@ -51,7 +51,7 @@ export function Header() {
       <div>
 
 
-        {isShow ? <h2>{count}</h2> : null}
+        {isShow ? <h2>{doubleCount}</h2> : null}
         <p>
           <a
             href="/about"
