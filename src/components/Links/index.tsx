@@ -15,7 +15,7 @@ type Props = {
   handleReduce: () => void;
 }
 
-export function Links({items, handleReduce}:Props) {
+export const Links = ({items, handleReduce}:Props) => {
 
   const context = useContext(GlobalValueContext);
   if (!context) {

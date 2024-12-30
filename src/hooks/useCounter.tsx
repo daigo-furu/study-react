@@ -1,8 +1,11 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 export const useCounter = () => {
   const [count, setCount] = useState(1)
   const [isShow, setIsShow] = useState(true)
+  const doubleCount = useMemo(() => {
+    return count *2
+  }, [count])
 
   // 外部だと引数の渡しがめんどくさいがコンポーネントが再レンダリングされてもメソッドは再生成されない
   // <a>に使う場合はイベントの型はReact.MouseEvent<HTMLAnchorElement>で、React.MouseEventだけでも一応大丈夫
@@ -34,5 +37,5 @@ export const useCounter = () => {
     setIsShow((prevIsShow) =>  !prevIsShow)
   },[])
 
-  return {count, isShow, handleClick1, handleClick2, handleClick3, handleDisplay}
+  return {count, isShow, doubleCount, handleClick1, handleClick2, handleClick3, handleDisplay}
 }
