@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link"
 import styles from "./Header.module.css"
-import {  useEffect } from "react";
+import {  useEffect, useState } from "react";
 import { useCounter } from "@/hooks/useCounter";
 import { useInputArray } from "@/hooks/useInputArray";
 // import { GlobalValueContext } from "@/components/providers/globalValueProvider";
@@ -18,6 +18,9 @@ import { useInputArray } from "@/hooks/useInputArray";
 export function Header() {
   const {count, isShow,doubleCount, handleClick1, handleClick2, handleClick3, handleDisplay} = useCounter()
   const {text, array, handelChange, handleAdd} = useInputArray()
+
+
+  const [testCount, setTestCount] = useState(1)
 
   // 内部だとコンポーネントが再レンダリングされるとメソッドは再生成される
   // <button>の場合はReact.MouseEvent<HTMLButtonElement>でReact.MouseEventだけでも一応大丈夫
@@ -38,6 +41,10 @@ export function Header() {
     }
   }, [count])
 
+  const testClick = () =>{
+    setTestCount(prevCount => prevCount + 1)
+  }
+
   return (
     <header className={styles.header}>
       <div>
@@ -50,7 +57,8 @@ export function Header() {
       </div>
       <div>
 
-
+        <p>テスト：{testCount}</p>
+        <button onClick={testClick}>テストカウントアップ</button>
         {isShow ? <h2>{doubleCount}</h2> : null}
         <p>
           <a

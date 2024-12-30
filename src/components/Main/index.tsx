@@ -2,7 +2,7 @@
 import styles from "./Main.module.css"
 import { Links } from "@/components/Links";
 import { Headline } from "@/components/Headline";
-import { useBgLightBlue } from "@/hooks/useBgLightBlue";
+import { useBgColor } from "@/hooks/useBgColor";
 import { useCallback, useState } from "react";
 // import { GlobalValueProvider } from "@/components/providers/GlobalValueProvider"
 
@@ -44,7 +44,8 @@ export function Main({page}:Props) {
   const handleReduce = useCallback(() => {
     setItems(prevItems => prevItems.slice(0, prevItems.length - 1))
   },[])
-  useBgLightBlue(page)
+  // useBgLightBlue(page)
+  useBgColor()
   return (
     <main className={styles.main}>
       {/* <GlobalValueProvider> */}
