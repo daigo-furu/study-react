@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link"
 import styles from "./Header.module.css"
-import {  useEffect } from "react";
+import {  useEffect, useState } from "react";
 import { useCounter } from "@/hooks/useCounter";
 import { useInputArray } from "@/hooks/useInputArray";
 // import { GlobalValueContext } from "@/components/providers/globalValueProvider";
@@ -15,9 +15,18 @@ import { useInputArray } from "@/hooks/useInputArray";
 //   alert(foo);
 // }
 
-export function Header() {
-  const {count, isShow, handleClick1, handleClick2, handleClick3, handleDisplay} = useCounter()
+
+const NAV_ITEMS = [
+  {href: "/", label: "Index"},
+  {href: "/about", label: "About"},
+]
+
+export const Header = () => {
+  const {count, isShow,doubleCount, handleClick1, handleClick2, handleClick3, handleDisplay} = useCounter()
   const {text, array, handelChange, handleAdd} = useInputArray()
+
+
+  const [testCount, setTestCount] = useState(1)
 
   // 内部だとコンポーネントが再レンダリングされるとメソッドは再生成される
   // <button>の場合はReact.MouseEvent<HTMLButtonElement>でReact.MouseEventだけでも一応大丈夫
@@ -38,20 +47,34 @@ export function Header() {
     }
   }, [count])
 
+  const testClick = () =>{
+    setTestCount(prevCount => prevCount + 1)
+  }
+
   return (
     <header className={styles.header}>
       <div>
+        {NAV_ITEMS.map((item) => {
+          return (
+            <Link key={item.href} className={styles.anchor} href={item.href}>
+              {item.label}
+            </Link>
+          )
+        })}
+        {/*
         <Link className={styles.anchor} href="/">
           Index
         </Link>
         <Link className={styles.anchor} href="/about">
           About
-        </Link>
+        </Link> 
+        */}
       </div>
       <div>
 
-
-        {isShow ? <h2>{count}</h2> : null}
+        <p>テスト：{testCount}</p>
+        <button onClick={testClick}>テストカウントアップ</button>
+        {isShow ? <h2>{doubleCount}</h2> : null}
         <p>
           <a
             href="/about"

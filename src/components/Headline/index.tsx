@@ -22,7 +22,7 @@ type Props = {
                       //ReactNode[]とすると<p>などの要素が複数あるとchildren[0]は最初の<p>だけになる。
 };
 //
-export function Headline({ page, children }: Props) {
+export const Headline = ({ page, children }: Props) => {
 // export function Headline({ page, number,array, obj, boolean, code, children }: Props) { // もしも引数を使う場合（使わない引数はコメントアウトした）
 // export function Headline(props: Props) { // こうやって分割代入させずに props.page のような使い方もよい
 // 分割代入をする場合childrenもこちらに引数を書く必要がある
