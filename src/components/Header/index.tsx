@@ -15,7 +15,13 @@ import { useInputArray } from "@/hooks/useInputArray";
 //   alert(foo);
 // }
 
-export function Header() {
+
+const NAV_ITEMS = [
+  {href: "/", label: "Index"},
+  {href: "/about", label: "About"},
+]
+
+export const Header = () => {
   const {count, isShow,doubleCount, handleClick1, handleClick2, handleClick3, handleDisplay} = useCounter()
   const {text, array, handelChange, handleAdd} = useInputArray()
 
@@ -48,12 +54,21 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div>
+        {NAV_ITEMS.map((item) => {
+          return (
+            <Link key={item.href} className={styles.anchor} href={item.href}>
+              {item.label}
+            </Link>
+          )
+        })}
+        {/*
         <Link className={styles.anchor} href="/">
           Index
         </Link>
         <Link className={styles.anchor} href="/about">
           About
-        </Link>
+        </Link> 
+        */}
       </div>
       <div>
 

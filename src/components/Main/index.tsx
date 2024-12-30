@@ -39,7 +39,7 @@ const ITEMS:itemType[] = [
    }
 ]
 
-export function Main({page}:Props) {
+export const Main = ({page}:Props) => {
   const [items, setItems] = useState<itemType[]>(ITEMS)
   const handleReduce = useCallback(() => {
     setItems(prevItems => prevItems.slice(0, prevItems.length - 1))
