@@ -3,11 +3,12 @@
 .board{
   width: 100%;
   background-color: #333;
+  /* position: relative; */
 }
 .squares{
-  width: 90%;
+  width: 84%;
   aspect-ratio: 1;
-  margin: 5%;
+  margin: 8%;
   display: flex;
   flex-direction: column;
   background-color: #00552e;
@@ -147,7 +148,44 @@
   left:75%;
   background-color: #000;
 }
+.columnScale{
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  top:-8%;
+  left:0;
+}
+.columnScale ul{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.columnScale ul li{
+  width: 12.5%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+}
+.rowScale{
+  width: 8%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:-7%;
+}
+.rowScale ul{
+  width: 100%;
+  height: 100%;
+}
+.rowScale ul li{
+  width: 100%;
+  height: 12.5%;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
 
+}
 @media screen and (min-width: 481px) {
   .board{
     width: 70%;
@@ -166,6 +204,25 @@
     margin-left: -5px;
     width: 10px;
     height: 10px;
+  }
+  .columnScale{
+    top:-8%;
+    font-size: 18px;
+  }
+  .rowScale{
+    left:-7%;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .columnScale{
+    top:-6%;
+    font-size: 20px;
+  }
+  .rowScale{
+    left:-5%;
+    font-size: 20px;
   }
 }
 
